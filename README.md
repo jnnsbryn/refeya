@@ -1,14 +1,14 @@
 LOGIN INFO
 
-ADMIN
-Email: admin@refeya.my.id
-Password: admin1234
+ADMIN<br>
+Email: admin@refeya.my.id<br>
+Password: admin1234<br>
 
 USER
 Email: sugeng@gmail.com
 Password: sugeng1234
 
-=================================================================================================
+===========================================================================
 
 NOTES
 
