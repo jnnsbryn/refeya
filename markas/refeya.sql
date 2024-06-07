@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 06, 2024 at 07:20 PM
+-- Generation Time: Jun 07, 2024 at 08:30 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.0.30
 
@@ -85,7 +85,7 @@ CREATE TABLE `tbl_user` (
   `id_user` int(11) NOT NULL,
   `email_user` varchar(30) NOT NULL,
   `pwd_user` varchar(200) NOT NULL,
-  `role_user` varchar(5) NOT NULL,
+  `role_user` varchar(5) NOT NULL DEFAULT 'user',
   `status_user` int(11) NOT NULL DEFAULT 1,
   `created_at` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
@@ -96,7 +96,9 @@ CREATE TABLE `tbl_user` (
 
 INSERT INTO `tbl_user` (`id_user`, `email_user`, `pwd_user`, `role_user`, `status_user`, `created_at`) VALUES
 (1, 'admin@refeya.my.id', '$2y$10$94D72fWs4MN6DWT1CPJw2uPp3fyTvdanuf84PozJ40h39GseIvBJ6', 'admin', 1, '2024-06-06'),
-(2, 'sugeng@gmail.com', '$2y$10$CxZTd9HFCk9AgISCvLstDOKQveCWI1dZB2Se/5kCG6sGInCf9pcO.', 'user', 1, '2024-06-06');
+(2, 'sugeng@gmail.com', '$2y$10$CxZTd9HFCk9AgISCvLstDOKQveCWI1dZB2Se/5kCG6sGInCf9pcO.', 'user', 1, '2024-06-06'),
+(3, 'pedro@gmail.com', '$2y$10$0Kwz0RLEPVPefd1rCjwo9efW7qxuqaz0/gHtWF.w9Xn9DYy0bAzRi', 'user', 1, '2024-06-08'),
+(4, 'mbappe@gmail.com', '$2y$10$2Fqcl.miRL7G4oU4Yqrd.uyq40/yHi40z7wN2xCHqEPtuhFWxuqcG', 'user', 1, '2024-06-08');
 
 --
 -- Indexes for dumped tables
@@ -140,19 +142,19 @@ ALTER TABLE `tbl_cafe`
 -- AUTO_INCREMENT for table `tbl_favorite`
 --
 ALTER TABLE `tbl_favorite`
-  MODIFY `id_favorite` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_favorite` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `tbl_review`
 --
 ALTER TABLE `tbl_review`
-  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id_review` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `tbl_user`
 --
 ALTER TABLE `tbl_user`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

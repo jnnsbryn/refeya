@@ -1,17 +1,18 @@
 <?php
 session_start();
 if(isset($_SESSION['role'])){ // Jika tidak ada session role berarti dia belum login
-	if ($_SESSION['role'] != "admin"){
-		header("location: ../");
-	}
+    if ($_SESSION['role'] != "admin"){
+        header("location: ../");
+    }
 } else {
-	header("location: ../");
+    header("location: ../");
 }
 include "../koneksi.php";
 $query = "
     SELECT 
         (SELECT COUNT(*) FROM tbl_cafe WHERE status_cafe = 1) AS cafe_count,
-        (SELECT COUNT(*) FROM tbl_user WHERE status_user = 1) AS user_count
+        (SELECT COUNT(*) FROM tbl_user WHERE status_user = 1) AS user_count,
+        (SELECT COUNT(*) FROM tbl_review) AS review_count
 ";
 $result = mysqli_query($connect, $query);
 
@@ -19,8 +20,9 @@ $result = mysqli_query($connect, $query);
 if($result) {
     // Fetch the result
     $row = mysqli_fetch_assoc($result);
-	$total_cafe = $row['cafe_count'];
-	$total_user = $row['user_count'];
+    $total_cafe = $row['cafe_count'];
+    $total_user = $row['user_count'];
+    $total_review = $row['review_count'];
 } else {
     echo "Error: " . mysqli_error($connect);
 }
@@ -73,7 +75,7 @@ mysqli_close($connect);
 				<div class="col">
 					<div class="card text-bg-primary">
 						<div class="card-body">
-							<h1 class="card-title text-center"><a href="./manajemen-review.php" class="text-decoration-none text-light stretched-link"><i class="bi bi-pen"></i> 1000 Review</a></h1>
+							<h1 class="card-title text-center"><a href="./manajemen-review.php" class="text-decoration-none text-light stretched-link"><i class="bi bi-pen"></i> <?= $total_review; ?> Review</a></h1>
 						</div>
 					</div>
 				</div>
